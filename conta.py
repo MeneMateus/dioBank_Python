@@ -30,14 +30,15 @@ class Transacao(ABC):
 
 class Historico():
     def __init__(self):
-        self.transacoes = []
+        self._transacoes = []
         
     @property
     def transacoes(self):
-        return self.transacoes
+        return self._transacoes
+    
     @transacoes.setter
-    def transacoes(self, transacoes):
-        self._transacoes = transacoes
+    def transacoes(self,transacoes):
+        self._transacoes += transacoes
     
     def adicionar_transacao(self, transacao):
         self._transacoes.append(
